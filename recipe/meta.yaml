@@ -11,7 +11,7 @@ source:
 build:
   number: 0
   noarch: python
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
+  script: {{ PYTHON }} -m pip install . --no-deps -vv --no-deps --no-build-isolation
 
 requirements:
   host:
@@ -36,7 +36,13 @@ about:
   home: https://github.com/h5netcdf/h5netcdf
   license: BSD-3-Clause
   license_file: LICENSE
+  license_family: BSD-3
+  description: |
+    A Python interface for the netCDF4 file-format that reads and writes local or remote HDF5 files directly via h5py
+    or h5pyd, without relying on the Unidata netCDF library.
   summary: Pythonic interface to netCDF4 via h5py
+  dev_url: https://github.com/h5netcdf/h5netcdf
+  doc_url: https://github.com/h5netcdf/h5netcdf
 
 extra:
   recipe-maintainers:
