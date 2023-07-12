@@ -18,11 +18,11 @@ build:
 requirements:
   host:
     - python
-    - setuptools >=42
-    - setuptools-scm >=7.0
+    - setuptools 67.8.0
+    - setuptools-scm 7.1.0
     - pip
+    - wheel
   run:
-    - python
     - h5py
     - packaging
 
@@ -38,7 +38,7 @@ about:
   home: https://github.com/h5netcdf/h5netcdf
   license: BSD-3-Clause
   license_file: LICENSE
-  license_family: BSD-3
+  license_family: BSD
   description: |
     A Python interface for the netCDF4 file-format that reads and writes local or remote HDF5 files directly via h5py
     or h5pyd, without relying on the Unidata netCDF library.
