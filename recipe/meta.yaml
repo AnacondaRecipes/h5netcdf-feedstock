@@ -17,8 +17,8 @@ build:
 requirements:
   host:
     - python
-    - setuptools 67.8.0
-    - setuptools-scm 7.1.0
+    - setuptools
+    - setuptools-scm
     - pip
     - wheel
   run:
