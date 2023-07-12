@@ -9,7 +9,6 @@ source:
   sha256: 7f6b2733bde06ea2575b79a6450d9bd5c38918ff4cb2a355bf22bbe8c86c6bcf
 
 build:
-  # skip py<39 required from upstream
   skip: True  # [py<39]
   number: 0
   noarch: python
