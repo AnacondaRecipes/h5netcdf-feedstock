@@ -22,9 +22,10 @@ requirements:
     - setuptools-scm 7.1.0
     - pip
     - wheel
+    - packaging
   run:
     - h5py
-    - packaging
+    - python
 
 test:
   imports:
