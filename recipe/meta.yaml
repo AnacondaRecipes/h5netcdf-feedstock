@@ -22,10 +22,10 @@ requirements:
     - setuptools-scm 7.1.0
     - pip
     - wheel
-    - packaging
   run:
     - h5py
     - python
+    - packaging
 
 test:
   imports:
@@ -54,3 +54,5 @@ extra:
     - ocefpaf
     - shoyer
     - kmuehlbauer
+  skip-lints:
+    - python_build_tool_in_run  # it complaints about packaging which is a run dep, not a host dep
