@@ -1,25 +1,27 @@
-{% set version = "1.2.0" %}
+{% set name = "h5netcdf" %}
+{% set version = "1.7.3" %}
 
 package:
-  name: h5netcdf
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/h/h5netcdf/h5netcdf-{{ version }}.tar.gz
-  sha256: 7f6b2733bde06ea2575b79a6450d9bd5c38918ff4cb2a355bf22bbe8c86c6bcf
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: f62a0e77d1e2a6cd8b9d8120d5b62b6a015dc7c6185768a01e983c77c0b794e3
 
 build:
-  skip: True  # [py<39]
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  skip: true  # [py<39]
 
 requirements:
   host:
-    - python
-    - setuptools
-    - setuptools-scm
     - pip
+    - python
     - wheel
+    - setuptools >=42
+    - setuptools-scm >=7.0
+    - toml
   run:
     - h5py
     - python
@@ -30,8 +32,11 @@ test:
     - h5netcdf
   commands:
     - pip check
+    - pytest --pyargs h5netcdf
   requires:
     - pip
+    - pytest
+    - netCDF4
 
 about:
   home: https://github.com/h5netcdf/h5netcdf
