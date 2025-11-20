@@ -27,12 +27,15 @@ requirements:
     - python
     - packaging
 
+{% set deselect_tests = "" %}
+# E   Failed: Invalid regex pattern provided to 'match': incomplete escape \U at position 44
+{% set deselect_tests = " --deselect=tests/test_h5netcdf.py::test_raise_on_closed_file" %}  # [win]
 test:
   imports:
     - h5netcdf
   commands:
     - pip check
-    - pytest --pyargs h5netcdf
+    - pytest --pyargs h5netcdf {{ deselect_tests }}
   requires:
     - pip
     - pytest
