@@ -1,13 +1,16 @@
 {% set name = "h5netcdf" %}
-{% set version = "1.7.3" %}
+{% set version = "1.8.1" %}
+{% set deselect_tests = "" %}
+{% set deselect_tests = " --deselect=tests/test_h5netcdf.py::test_raise_on_closed_file" %}  # [win]
 
+# E   Failed: Invalid regex pattern provided to 'match': incomplete escape \U at position 44
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f62a0e77d1e2a6cd8b9d8120d5b62b6a015dc7c6185768a01e983c77c0b794e3
+  sha256: 9b396a4cc346050fc1a4df8523bc1853681ec3544e0449027ae397cb953c7a16
 
 build:
   number: 0
@@ -26,10 +29,10 @@ requirements:
     - h5py
     - python
     - packaging
+    - numpy
+  run_constrained:
+    - pyfive >=1.0.0
 
-{% set deselect_tests = "" %}
-# E   Failed: Invalid regex pattern provided to 'match': incomplete escape \U at position 44
-{% set deselect_tests = " --deselect=tests/test_h5netcdf.py::test_raise_on_closed_file" %}  # [win]
 test:
   imports:
     - h5netcdf
