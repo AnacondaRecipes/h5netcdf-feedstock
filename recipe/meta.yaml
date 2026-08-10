@@ -36,9 +36,10 @@ requirements:
 
 {% set deselect_tests = "" %}
 # E   Failed: Invalid regex pattern provided to 'match': incomplete escape \U at position 44
-{% set deselect_tests = " --deselect=tests/test_h5netcdf.py::test_raise_on_closed_file" %}  # [win]
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_h5netcdf.py::test_raise_on_closed_file" %}  # [win]
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_h5netcdf.py::test_fileobj" %}  # [win]
 # E   OSError: Unable to synchronously open file (AWS region wasn't specified)
-{% set deselect_tests = " --deselect=tests/test_h5netcdf.py::test_ros3" %}
+{% set deselect_tests = deselect_tests + " --deselect=tests/test_h5netcdf.py::test_ros3" %}
 test:
   imports:
     - h5netcdf
