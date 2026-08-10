@@ -26,9 +26,9 @@ requirements:
     - python
     - packaging
     - numpy
-  run_constrained:
-    # h5py
+    # Use h5py as a default backend, don`t move it to the run_constrained section
     - h5py
+  run_constrained:
     # pyfive
     - pyfive >=1.0.0
     # h5pyd
