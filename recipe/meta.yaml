@@ -1,5 +1,5 @@
 {% set name = "h5netcdf" %}
-{% set version = "1.7.3" %}
+{% set version = "1.8.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f62a0e77d1e2a6cd8b9d8120d5b62b6a015dc7c6185768a01e983c77c0b794e3
+  sha256: 9b396a4cc346050fc1a4df8523bc1853681ec3544e0449027ae397cb953c7a16
 
 build:
   number: 0
@@ -21,11 +21,18 @@ requirements:
     - wheel
     - setuptools >=42
     - setuptools-scm >=7.0
-    - toml
+    - tomli
   run:
-    - h5py
     - python
     - packaging
+    - numpy
+  run_constrained:
+    # h5py
+    - h5py
+    # pyfive
+    - pyfive >=1.0.0
+    # h5pyd
+    - h5pyd
 
 {% set deselect_tests = "" %}
 # E   Failed: Invalid regex pattern provided to 'match': incomplete escape \U at position 44
